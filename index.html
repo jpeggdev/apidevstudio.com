@@ -3,94 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Dev Studio - Local API Development Made Simple</title>
-    <meta name="description" content="The all-in-one local API development tool. Mock APIs, receive webhooks, and proxy real APIs with a beautiful unified interface.">
+    <title>API Dev Studio - Mocks, Webhooks, and Proxies in One App</title>
+    <meta name="description" content="Stop switching between webhook.site, Postman mocks, and json-server. API Dev Studio handles all three — offline, private, fast.">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white min-h-screen">
+<body class="bg-slate-900 text-white min-h-screen">
 
     <!-- Hero Section -->
     <div class="container mx-auto px-6 py-20">
         <div class="text-center max-w-4xl mx-auto">
             <!-- Logo/Brand -->
             <div class="mb-8">
-                <h1 class="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <h1 class="text-6xl font-bold mb-4 text-white">
                     API Dev Studio
                 </h1>
                 <p class="text-xl text-gray-300">
-                    Local API Development Made Simple
+                    One app for mocks, webhooks, and API proxies
                 </p>
             </div>
 
             <!-- Main Value Prop -->
             <p class="text-2xl text-gray-200 mb-8 leading-relaxed">
-                Mock REST APIs, receive webhooks, and proxy real APIs — all in one beautiful desktop app.
+                Stop switching between webhook.site, Postman mocks, and json-server.<br>
+                API Dev Studio handles all three — offline, private, fast.
             </p>
 
-            <!-- CTA Buttons -->
-            <div class="flex gap-4 justify-center mb-16">
-                <button class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105">
-                    Join Waitlist
-                </button>
-                <a href="#features" class="border-2 border-purple-400 hover:bg-purple-400/10 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all">
-                    Learn More
-                </a>
+            <!-- Download Section -->
+            <div id="download-section" class="mb-16">
+                <!-- Loading state -->
+                <div id="download-loading" class="flex gap-4 justify-center">
+                    <div class="bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg text-lg opacity-50">
+                        Loading...
+                    </div>
+                </div>
+
+                <!-- Download buttons (hidden until loaded) -->
+                <div id="download-buttons" class="hidden">
+                    <div class="flex gap-4 justify-center flex-wrap">
+                        <!-- Primary download button -->
+                        <a id="primary-download" href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all flex items-center gap-3">
+                            <span id="download-icon">⬇</span>
+                            <span>Download for <span id="detected-os">Windows</span></span>
+                        </a>
+
+                        <!-- Other platforms dropdown -->
+                        <div class="relative">
+                            <button id="other-platforms-btn" class="border-2 border-slate-600 hover:border-slate-500 hover:bg-slate-800 text-white font-semibold px-6 py-4 rounded-lg text-lg transition-all flex items-center gap-2">
+                                Other platforms
+                                <span class="text-sm">▼</span>
+                            </button>
+                            <div id="platforms-dropdown" class="hidden absolute top-full left-0 mt-2 w-64 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-10">
+                                <a id="download-windows" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors rounded-t-lg">
+                                    <span>🪟</span>
+                                    <div>
+                                        <div class="font-medium">Windows</div>
+                                        <div class="text-sm text-gray-400">64-bit installer</div>
+                                    </div>
+                                </a>
+                                <a id="download-macos-arm" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors border-t border-slate-700">
+                                    <span>🍎</span>
+                                    <div>
+                                        <div class="font-medium">macOS (Apple Silicon)</div>
+                                        <div class="text-sm text-gray-400">M1/M2/M3 chips</div>
+                                    </div>
+                                </a>
+                                <a id="download-macos-intel" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors border-t border-slate-700">
+                                    <span>🍎</span>
+                                    <div>
+                                        <div class="font-medium">macOS (Intel)</div>
+                                        <div class="text-sm text-gray-400">Intel-based Macs</div>
+                                    </div>
+                                </a>
+                                <a id="download-linux" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-700 transition-colors border-t border-slate-700 rounded-b-lg">
+                                    <span>🐧</span>
+                                    <div>
+                                        <div class="font-medium">Linux</div>
+                                        <div class="text-sm text-gray-400">AppImage / .deb</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version info -->
+                    <p class="text-sm text-gray-400 mt-4">
+                        <span id="version-text">Latest version</span> · Free &amp; open source ·
+                        <a href="https://github.com/jpeggdev/api-dev-studio/releases" class="text-blue-400 hover:underline">View all releases</a>
+                    </p>
+                </div>
+
+                <!-- No releases fallback -->
+                <div id="no-releases" class="hidden">
+                    <a href="#signup" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all inline-block">
+                        Get Early Access
+                    </a>
+                    <p class="text-sm text-gray-400 mt-4">Coming soon for Windows, macOS, and Linux</p>
+                </div>
             </div>
 
-            <!-- Coming Soon Badge -->
-            <div class="inline-block bg-purple-500/20 border border-purple-400 rounded-full px-6 py-2 text-sm">
-                ✨ Coming Q2 2026 • Building in Public
-            </div>
+            <!-- See Features -->
+            <a href="#features" class="border-2 border-blue-400 hover:bg-blue-400/10 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all inline-block">
+                See Features
+            </a>
         </div>
 
         <!-- Features Grid -->
         <div id="features" class="mt-24 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all">
-                <div class="text-4xl mb-4">🎯</div>
-                <h3 class="text-xl font-bold mb-3">Mock REST APIs</h3>
+                <h3 class="text-xl font-bold mb-3">Mock any endpoint</h3>
                 <p class="text-gray-300">
-                    Create mock API endpoints with dynamic responses, templates, and realistic data generation. No coding required.
+                    Point your app at localhost:3456/api/users and get back whatever JSON you define. No server code needed.
                 </p>
             </div>
 
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all">
-                <div class="text-4xl mb-4">📡</div>
-                <h3 class="text-xl font-bold mb-3">Receive Webhooks</h3>
+                <h3 class="text-xl font-bold mb-3">Catch webhooks locally</h3>
                 <p class="text-gray-300">
-                    Capture webhooks from Stripe, GitHub, and any service. Inspect payloads, replay requests, forward to your local app.
+                    Get a public URL that tunnels to your machine. See every Stripe or GitHub webhook in real-time.
                 </p>
             </div>
 
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all">
-                <div class="text-4xl mb-4">🔄</div>
-                <h3 class="text-xl font-bold mb-3">Proxy & Record</h3>
+                <h3 class="text-xl font-bold mb-3">Record real APIs</h3>
                 <p class="text-gray-300">
-                    Proxy real APIs to record responses, then auto-generate mocks. Work offline with realistic data.
+                    Proxy requests to production, save the responses, replay them offline. Build against real data without hitting rate limits.
                 </p>
             </div>
 
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all">
-                <div class="text-4xl mb-4">🔒</div>
-                <h3 class="text-xl font-bold mb-3">100% Local-First</h3>
+                <h3 class="text-xl font-bold mb-3">Runs on your machine</h3>
                 <p class="text-gray-300">
-                    All data stays on your machine. No cloud required. Works offline, completely private.
+                    No cloud account, no data leaving your laptop. Works on a plane.
                 </p>
             </div>
 
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all">
-                <div class="text-4xl mb-4">⚡</div>
-                <h3 class="text-xl font-bold mb-3">Lightning Fast</h3>
+                <h3 class="text-xl font-bold mb-3">Instant responses</h3>
                 <p class="text-gray-300">
-                    Native desktop app built with Tauri. Instant responses, real-time updates, handles thousands of requests.
+                    Native desktop app, not Electron. Starts in under a second, handles thousands of requests.
                 </p>
             </div>
 
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all">
-                <div class="text-4xl mb-4">💎</div>
-                <h3 class="text-xl font-bold mb-3">One-Time Purchase</h3>
+                <h3 class="text-xl font-bold mb-3">Pay once</h3>
                 <p class="text-gray-300">
-                    Pay once, use forever. No subscriptions, no recurring fees. Free tier available.
+                    $49 one-time. No subscriptions. Free tier for personal projects.
                 </p>
             </div>
 
@@ -98,80 +156,216 @@
 
         <!-- Use Cases -->
         <div class="mt-24 text-center max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12">Replace 3+ Tools</h2>
+            <h2 class="text-4xl font-bold mb-12">Replace your tool sprawl</h2>
             <div class="grid md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                    <div class="text-red-400 line-through mb-2">webhook.site</div>
-                    <div class="text-red-400 line-through mb-2">Postman mock servers</div>
-                    <div class="text-red-400 line-through mb-2">json-server</div>
-                    <div class="text-green-400 mt-4 font-bold">→ API Dev Studio ✓</div>
+                <div class="space-y-2">
+                    <div class="text-gray-500 line-through">webhook.site</div>
+                    <div class="text-gray-500 line-through">Postman mock servers</div>
+                    <div class="text-gray-500 line-through">json-server</div>
+                    <div class="text-gray-500 line-through">ngrok (for webhooks)</div>
+                    <div class="text-blue-400 mt-4 font-medium">API Dev Studio</div>
                 </div>
                 <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                    <h4 class="font-bold mb-3">For Frontend Devs</h4>
+                    <h4 class="font-bold mb-3">Frontend devs</h4>
                     <p class="text-gray-300 text-sm">
-                        Build UI before backend is ready. Mock APIs with realistic data, test edge cases, work offline.
+                        Build UI before the backend exists. Define your own responses, test edge cases, work offline.
                     </p>
                 </div>
                 <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                    <h4 class="font-bold mb-3">For Full-Stack Devs</h4>
+                    <h4 class="font-bold mb-3">Full-stack devs</h4>
                     <p class="text-gray-300 text-sm">
-                        Test webhook integrations locally. Debug Stripe, GitHub, Twilio webhooks without public URLs.
+                        Test Stripe, GitHub, or Twilio webhooks without deploying. Debug locally with real payloads.
                     </p>
                 </div>
             </div>
         </div>
 
         <!-- Email Signup -->
-        <div class="mt-24 max-w-2xl mx-auto text-center bg-gradient-to-r from-purple-900/50 to-blue-900/50 border border-purple-400/30 rounded-2xl p-12">
-            <h2 class="text-3xl font-bold mb-4">Get Early Access</h2>
+        <div class="mt-24 max-w-2xl mx-auto text-center bg-slate-800 border border-slate-700 rounded-2xl p-12">
+            <h2 class="text-3xl font-bold mb-4">Get early access</h2>
             <p class="text-gray-300 mb-8">
-                Join the waitlist to be notified when we launch. Get 50% off early bird pricing.
+                Join the waitlist. Early supporters get 50% off.
             </p>
             <form class="flex gap-3 max-w-md mx-auto" onsubmit="handleSubmit(event)">
                 <input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="you@example.com"
                     required
-                    class="flex-1 px-6 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-400 focus:outline-none"
+                    class="flex-1 px-6 py-3 rounded-lg bg-slate-900 border border-slate-600 focus:border-blue-400 focus:outline-none"
                 >
                 <button
                     type="submit"
-                    class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all transform hover:scale-105"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all"
                 >
-                    Join Waitlist
+                    Join
                 </button>
             </form>
-            <p class="text-sm text-gray-400 mt-4">No spam. Unsubscribe anytime.</p>
+            <p class="text-sm text-gray-500 mt-4">No spam. Unsubscribe anytime.</p>
         </div>
 
         <!-- Footer -->
-        <div class="mt-24 text-center text-gray-400 border-t border-white/10 pt-12">
-            <p>© 2026 API Dev Studio. Built with ❤️ for developers.</p>
+        <div class="mt-24 text-center text-gray-500 border-t border-slate-800 pt-12">
+            <p>© 2026 API Dev Studio</p>
             <div class="mt-4 flex gap-6 justify-center">
-                <a href="#" class="hover:text-purple-400 transition-colors">Twitter</a>
-                <a href="#" class="hover:text-purple-400 transition-colors">GitHub</a>
-                <a href="#" class="hover:text-purple-400 transition-colors">Discord</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Twitter</a>
+                <a href="https://github.com/jpeggdev/api-dev-studio" class="hover:text-blue-400 transition-colors">GitHub</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Discord</a>
             </div>
         </div>
     </div>
 
     <script>
+        // Email signup handler
         function handleSubmit(event) {
             event.preventDefault();
             const email = event.target.querySelector('input[type="email"]').value;
-
-            // For now, just show alert. Later, integrate with email service
             alert('Thanks for joining! We\'ll email you at: ' + email);
-
-            // TODO: Integrate with ConvertKit, Mailchimp, or similar
-            // fetch('/api/subscribe', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ email }),
-            //     headers: { 'Content-Type': 'application/json' }
-            // });
-
             event.target.reset();
         }
+
+        // Download functionality
+        const GITHUB_REPO = 'jpeggdev/api-dev-studio';
+
+        // Detect user's operating system
+        function detectOS() {
+            const ua = navigator.userAgent;
+            if (ua.includes('Win')) return 'windows';
+            if (ua.includes('Mac')) {
+                // Check for Apple Silicon (not 100% reliable, but good enough)
+                // Most modern Macs are Apple Silicon now
+                return 'macos-arm';
+            }
+            if (ua.includes('Linux')) return 'linux';
+            return 'windows'; // Default fallback
+        }
+
+        // Get display name and icon for OS
+        function getOSDisplay(os) {
+            const displays = {
+                'windows': { name: 'Windows', icon: '🪟' },
+                'macos-arm': { name: 'macOS', icon: '🍎' },
+                'macos-intel': { name: 'macOS (Intel)', icon: '🍎' },
+                'linux': { name: 'Linux', icon: '🐧' }
+            };
+            return displays[os] || displays['windows'];
+        }
+
+        // Find download URL for a specific platform from release assets
+        function findAssetUrl(assets, platform) {
+            const patterns = {
+                'windows': [/\.msi$/i, /\.exe$/i],
+                'macos-arm': [/aarch64.*\.dmg$/i, /arm64.*\.dmg$/i],
+                'macos-intel': [/x64.*\.dmg$/i, /x86_64.*\.dmg$/i, /intel.*\.dmg$/i],
+                'linux': [/\.AppImage$/i, /\.deb$/i]
+            };
+
+            const platformPatterns = patterns[platform] || [];
+            for (const pattern of platformPatterns) {
+                const asset = assets.find(a => pattern.test(a.name));
+                if (asset) return asset.browser_download_url;
+            }
+            return null;
+        }
+
+        // Fetch latest release and set up download buttons
+        async function initDownloads() {
+            const loadingEl = document.getElementById('download-loading');
+            const buttonsEl = document.getElementById('download-buttons');
+            const noReleasesEl = document.getElementById('no-releases');
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases/latest`);
+
+                if (!response.ok) {
+                    throw new Error('No releases found');
+                }
+
+                const release = await response.json();
+                const assets = release.assets || [];
+
+                if (assets.length === 0) {
+                    throw new Error('No assets in release');
+                }
+
+                // Get download URLs for each platform
+                const downloads = {
+                    'windows': findAssetUrl(assets, 'windows'),
+                    'macos-arm': findAssetUrl(assets, 'macos-arm'),
+                    'macos-intel': findAssetUrl(assets, 'macos-intel'),
+                    'linux': findAssetUrl(assets, 'linux')
+                };
+
+                // Detect user's OS and set primary download
+                const userOS = detectOS();
+                const osDisplay = getOSDisplay(userOS);
+
+                document.getElementById('detected-os').textContent = osDisplay.name;
+                document.getElementById('download-icon').textContent = osDisplay.icon;
+
+                const primaryBtn = document.getElementById('primary-download');
+                if (downloads[userOS]) {
+                    primaryBtn.href = downloads[userOS];
+                } else {
+                    // Fallback to first available download
+                    const firstAvailable = Object.values(downloads).find(url => url);
+                    primaryBtn.href = firstAvailable || `https://github.com/${GITHUB_REPO}/releases/latest`;
+                }
+
+                // Set all platform download links
+                if (downloads['windows']) {
+                    document.getElementById('download-windows').href = downloads['windows'];
+                }
+                if (downloads['macos-arm']) {
+                    document.getElementById('download-macos-arm').href = downloads['macos-arm'];
+                }
+                if (downloads['macos-intel']) {
+                    document.getElementById('download-macos-intel').href = downloads['macos-intel'];
+                }
+                if (downloads['linux']) {
+                    document.getElementById('download-linux').href = downloads['linux'];
+                }
+
+                // Show version
+                document.getElementById('version-text').textContent = `Version ${release.tag_name}`;
+
+                // Show download buttons
+                loadingEl.classList.add('hidden');
+                buttonsEl.classList.remove('hidden');
+
+            } catch (error) {
+                console.log('No releases available yet:', error.message);
+                // Show "Get Early Access" fallback
+                loadingEl.classList.add('hidden');
+                noReleasesEl.classList.remove('hidden');
+            }
+        }
+
+        // Toggle dropdown
+        function initDropdown() {
+            const btn = document.getElementById('other-platforms-btn');
+            const dropdown = document.getElementById('platforms-dropdown');
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                dropdown.classList.add('hidden');
+            });
+
+            // Prevent dropdown from closing when clicking inside it
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initDownloads();
+            initDropdown();
+        });
     </script>
 </body>
 </html>
