@@ -1,0 +1,10 @@
+name = "apidevstudio-subscribe"
+main = "subscribe.js"
+compatibility_date = "2024-01-01"
+
+# Set these in Cloudflare dashboard or via `wrangler secret put`
+# [vars]
+# ALLOWED_ORIGIN = "https://apidevstudio.com"
+
+# Secrets (set via dashboard or CLI, never commit):
+# - BUTTONDOWN_API_KEY
