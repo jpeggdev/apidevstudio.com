@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! - API Dev Studio</title>
+    <meta name="robots" content="noindex">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #0a0a0b;
+            --color-bg-elevated: #131316;
+            --color-bg-card: #18181c;
+            --color-border: #2a2a30;
+            --color-text: #fafafa;
+            --color-text-muted: #8a8a94;
+            --color-text-dim: #5a5a64;
+            --color-accent: #c8ff00;
+            --font-display: 'Syne', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-mono);
+            background: var(--color-bg);
+            color: var(--color-text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 24px;
+            padding: 64px 48px;
+            max-width: 520px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            font-size: 40px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .email-box {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .email-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .email-text {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        .email-text strong {
+            color: var(--color-text);
+        }
+
+        .steps {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .steps-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .steps ol {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .steps li:last-child {
+            border-bottom: none;
+        }
+
+        .steps li::before {
+            content: counter(steps);
+            width: 24px;
+            height: 24px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        .btn-primary:hover {
+            background: #d4ff33;
+        }
+
+        .help-text {
+            margin-top: 24px;
+            font-size: 0.8125rem;
+            color: var(--color-text-dim);
+        }
+
+        .help-text a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+        }
+
+        .help-text a:hover {
+            color: var(--color-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">✓</div>
+        <h1>Thank you for your purchase!</h1>
+        <p class="subtitle">You're now a proud owner of API Dev Studio Pro.</p>
+
+        <div class="email-box">
+            <div class="email-icon">📧</div>
+            <p class="email-text">
+                Your license key is on its way to your email.<br>
+                <strong>Check your inbox</strong> (and spam folder, just in case).
+            </p>
+        </div>
+
+        <div class="steps">
+            <h3 class="steps-title">Next steps:</h3>
+            <ol>
+                <li>Download API Dev Studio if you haven't already</li>
+                <li>Open the app and go to <strong>Settings → License</strong></li>
+                <li>Click <strong>Activate License</strong></li>
+                <li>Paste your license key or activate by email</li>
+            </ol>
+        </div>
+
+        <a href="/" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download API Dev Studio
+        </a>
+
+        <p class="help-text">
+            Didn't receive your email? <a href="mailto:support@apidevstudio.com">Contact support</a>
+        </p>
+    </div>
+</body>
+</html>

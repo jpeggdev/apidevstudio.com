@@ -1,0 +1,19 @@
+name = "apidevstudio-license"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "apidevstudio_licenses"
+database_name = "apidevstudio-licenses"
+database_id = "e4b06b77-89b1-4a9f-b016-6fc9bbe8bfbd"
+
+# Environment variables (set non-secrets here)
+[vars]
+ALLOWED_ORIGIN = "https://apidevstudio.com"
+APP_URL = "https://apidevstudio.com"
+
+# Secrets (set via dashboard or CLI, never commit):
+# - STRIPE_SECRET_KEY
+# - STRIPE_WEBHOOK_SECRET
+# - RESEND_API_KEY (for sending license emails)
