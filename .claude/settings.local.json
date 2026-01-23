@@ -1,7 +1,8 @@
 {
   "permissions": {
     "additionalDirectories": [
-      "C:\\code\\api-dev-studio\\"
+      "C:\\code\\api-dev-studio\\",
+      "C:\\code\\apidevstudio"
     ]
   }
 }
