@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	site: 'https://apidevstudio.com',
 	base: '/docs',
-	outDir: '../docs',
+	outDir: './dist',  // Build to local dist folder, then deploy to ../docs
 	integrations: [
 		starlight({
 			title: 'API Dev Studio',
