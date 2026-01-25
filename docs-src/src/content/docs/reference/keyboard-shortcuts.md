@@ -3,7 +3,6 @@ title: Keyboard Shortcuts
 description: Quick reference for all keyboard shortcuts in API Dev Studio
 ---
 
-# Keyboard Shortcuts
 
 API Dev Studio supports keyboard shortcuts for common actions. Use `Ctrl` on Windows/Linux or `Cmd` on macOS.
 

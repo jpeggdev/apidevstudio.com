@@ -7,7 +7,6 @@ context:
   - recordings-list
 ---
 
-# Proxy & Recording
 
 API Dev Studio can proxy requests to real APIs and record the responses. This lets you:
 

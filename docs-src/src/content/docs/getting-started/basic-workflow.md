@@ -6,7 +6,6 @@ context:
   - endpoint-editor
 ---
 
-# Basic Workflow
 
 The typical workflow in API Dev Studio:
 

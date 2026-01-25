@@ -3,7 +3,6 @@ title: CLI Reference
 description: Command-line interface for API Dev Studio
 ---
 
-# CLI Reference
 
 API Dev Studio includes a command-line interface (`apidev`) for managing mock servers, running the MCP server, and performing common tasks without the GUI.
 
@@ -46,13 +45,10 @@ apidev serve [PROJECT_ID] [OPTIONS]
 
 **Examples:**
 ```bash
-# Start server for default project
 apidev serve
 
-# Start server on specific port
 apidev serve my-project --port 4000
 
-# Start server accessible on network
 apidev serve --host 0.0.0.0
 ```
 
@@ -72,10 +68,8 @@ apidev mcp [OPTIONS]
 
 **Examples:**
 ```bash
-# Start MCP server in stdio mode (for Claude Desktop)
 apidev mcp
 
-# Start MCP server in HTTP mode
 apidev mcp --http --port 3100
 ```
 
@@ -93,10 +87,8 @@ apidev list [RESOURCE]
 
 **Examples:**
 ```bash
-# List all projects
 apidev list
 
-# List endpoints in a project
 apidev list endpoints my-project
 ```
 
@@ -116,10 +108,8 @@ apidev import <FILE> [OPTIONS]
 
 **Examples:**
 ```bash
-# Import spec to new project
 apidev import api-spec.yaml
 
-# Import to existing project, overwriting conflicts
 apidev import api-spec.json --project my-api --overwrite
 ```
 
@@ -139,10 +129,8 @@ apidev export <PROJECT_ID> [OPTIONS]
 
 **Examples:**
 ```bash
-# Export as YAML
 apidev export my-project -o api-spec.yaml
 
-# Export as JSON
 apidev export my-project -o api-spec.json --format json
 ```
 
@@ -176,17 +164,14 @@ apidev version
 ### Start Development Server
 
 ```bash
-# Start mock server for your API project
 apidev serve my-api --port 3001
 
-# In another terminal, test an endpoint
 curl http://localhost:3001/api/users
 ```
 
 ### CI/CD Integration
 
 ```bash
-# Import OpenAPI spec and start server for tests
 apidev import ./openapi.yaml --project test-api --overwrite
 apidev serve test-api --port 3001 &
 npm test

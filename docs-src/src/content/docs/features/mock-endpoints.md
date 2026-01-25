@@ -6,7 +6,6 @@ context:
   - endpoint-list
 ---
 
-# Mock Endpoints
 
 Mock endpoints return predefined responses when called. Use them to simulate APIs during development.
 

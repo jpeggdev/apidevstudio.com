@@ -6,7 +6,6 @@ context:
   - project-list
 ---
 
-# Common Issues
 
 Solutions to problems you might encounter.
 

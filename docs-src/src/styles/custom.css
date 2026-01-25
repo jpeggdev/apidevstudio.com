@@ -91,6 +91,22 @@ mark {
   background: linear-gradient(135deg, #0a0a0b 0%, #131316 100%);
 }
 
+/* Fix button text contrast - dark text on lime background */
+.sl-link-button {
+  color: #0a0a0b !important;
+}
+
+.sl-link-button:hover {
+  color: #0a0a0b !important;
+}
+
+/* Fix sidebar active link text contrast */
+[data-current="true"],
+.sidebar-content a[aria-current="page"],
+nav a[aria-current="page"] {
+  color: #0a0a0b !important;
+}
+
 /* Logo sizing */
 .site-title img {
   height: 2rem;

@@ -3,7 +3,6 @@ title: OpenAPI Import/Export
 description: Import OpenAPI specs to generate endpoints, export your mocks as OpenAPI
 ---
 
-# OpenAPI Import/Export
 
 API Dev Studio supports importing OpenAPI 3.x specifications to quickly generate mock endpoints, and exporting your mocks back to OpenAPI format for documentation or sharing.
 

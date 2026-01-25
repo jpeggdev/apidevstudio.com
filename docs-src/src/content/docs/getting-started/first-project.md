@@ -6,8 +6,6 @@ context:
   - project-create
 ---
 
-# Your First Project
-
 Projects organize your mock endpoints. Each project runs its own HTTP server on a configurable port.
 
 ## Create a Project

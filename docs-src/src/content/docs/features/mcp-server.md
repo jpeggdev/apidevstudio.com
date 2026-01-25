@@ -3,7 +3,6 @@ title: MCP Server
 description: Connect AI assistants like Claude to manage your mock APIs
 ---
 
-# MCP Server
 
 API Dev Studio includes a built-in MCP (Model Context Protocol) server that allows AI assistants like Claude to interact with your mock APIs directly.
 
@@ -29,10 +28,8 @@ MCP is a protocol that enables AI assistants to use tools and access context fro
 ### Using the CLI
 
 ```bash
-# Start MCP server in stdio mode (for Claude Desktop)
 apidev mcp
 
-# Start MCP server in HTTP mode
 apidev mcp --http --port 3100
 ```
 

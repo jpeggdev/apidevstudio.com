@@ -6,7 +6,6 @@ context:
   - response-body-editor
 ---
 
-# Template Helpers Reference
 
 Complete reference of all available template helpers. Use in response bodies with `{{helperName}}` syntax.
 

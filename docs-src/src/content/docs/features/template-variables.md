@@ -6,7 +6,6 @@ context:
   - response-body-editor
 ---
 
-# Template Variables
 
 Template variables let you generate dynamic, realistic data in your mock responses. Use double curly braces: `{{variableName}}`.
 

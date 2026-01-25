@@ -3,7 +3,6 @@ title: Webhook Endpoints
 description: Receive and inspect webhooks locally with optional forwarding
 ---
 
-# Webhook Endpoints
 
 Webhook endpoints let you receive HTTP requests from external services and inspect them in real-time. Perfect for testing webhooks from payment providers, CI/CD systems, or any service that sends HTTP callbacks.
 
