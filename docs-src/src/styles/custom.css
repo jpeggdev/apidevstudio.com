@@ -1,0 +1,111 @@
+/* Custom theme for API Dev Studio docs - matching the landing page */
+
+:root {
+  /* Override Starlight colors to match apidevstudio.com */
+  --sl-color-accent-low: #1a2600;
+  --sl-color-accent: #c8ff00;
+  --sl-color-accent-high: #e5ff80;
+
+  --sl-color-white: #fafafa;
+  --sl-color-gray-1: #e5e5e8;
+  --sl-color-gray-2: #c5c5cc;
+  --sl-color-gray-3: #8a8a94;
+  --sl-color-gray-4: #5a5a64;
+  --sl-color-gray-5: #3a3a42;
+  --sl-color-gray-6: #2a2a30;
+  --sl-color-black: #0a0a0b;
+
+  /* Background colors */
+  --sl-color-bg: #0a0a0b;
+  --sl-color-bg-nav: #131316;
+  --sl-color-bg-sidebar: #131316;
+  --sl-color-bg-inline-code: #18181c;
+
+  /* Text colors */
+  --sl-color-text: #fafafa;
+  --sl-color-text-accent: #c8ff00;
+
+  /* Fonts - match landing page */
+  --sl-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* Dark mode is the default */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #f0ffc0;
+  --sl-color-accent: #6a8c00;
+  --sl-color-accent-high: #3d5200;
+
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #fafafa;
+  --sl-color-bg-sidebar: #fafafa;
+
+  --sl-color-text: #0a0a0b;
+}
+
+/* Code blocks styling */
+.expressive-code {
+  --ec-codeBg: #131316;
+  --ec-codeSelBg: rgba(200, 255, 0, 0.15);
+  --ec-codeBrdCol: #2a2a30;
+  --ec-codeFrm: #18181c;
+}
+
+/* Links */
+a {
+  color: var(--sl-color-accent);
+}
+
+a:hover {
+  color: var(--sl-color-accent-high);
+}
+
+/* Sidebar styling */
+.sidebar-content {
+  border-color: var(--sl-color-gray-6);
+}
+
+/* Card/callout styling */
+.starlight-aside {
+  border-color: var(--sl-color-accent);
+  background-color: rgba(200, 255, 0, 0.05);
+}
+
+/* Table styling */
+table {
+  border-color: var(--sl-color-gray-6);
+}
+
+th {
+  background-color: var(--sl-color-bg-nav);
+}
+
+/* Search highlight */
+mark {
+  background-color: rgba(200, 255, 0, 0.3);
+  color: inherit;
+}
+
+/* Hero section on index */
+.hero {
+  background: linear-gradient(135deg, #0a0a0b 0%, #131316 100%);
+}
+
+/* Logo sizing */
+.site-title img {
+  height: 2rem;
+}
+
+/* Header styling */
+header.header {
+  background-color: var(--sl-color-bg-nav);
+  border-bottom: 1px solid var(--sl-color-gray-6);
+}
+
+/* Improve contrast for inline code */
+code:not(pre code) {
+  background-color: var(--sl-color-bg-inline-code);
+  padding: 0.15em 0.35em;
+  border-radius: 0.25em;
+  border: 1px solid var(--sl-color-gray-6);
+}
