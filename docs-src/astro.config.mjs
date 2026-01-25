@@ -28,6 +28,32 @@ export default defineConfig({
 						href: '/favicon.ico',
 					},
 				},
+				{
+					tag: 'style',
+					content: `
+						:root {
+							--sl-color-accent-low: #1a2600;
+							--sl-color-accent: #c8ff00;
+							--sl-color-accent-high: #e5ff80;
+							--sl-color-white: #fafafa;
+							--sl-color-gray-1: #e5e5e8;
+							--sl-color-gray-2: #c5c5cc;
+							--sl-color-gray-3: #8a8a94;
+							--sl-color-gray-4: #5a5a64;
+							--sl-color-gray-5: #3a3a42;
+							--sl-color-gray-6: #2a2a30;
+							--sl-color-black: #0a0a0b;
+							--sl-color-bg: #0a0a0b;
+							--sl-color-bg-nav: #131316;
+							--sl-color-bg-sidebar: #131316;
+							--sl-color-text: #fafafa;
+							--sl-color-text-accent: #c8ff00;
+						}
+						.sl-link-button, [data-current="true"], .sidebar-content a[aria-current="page"] {
+							color: #0a0a0b !important;
+						}
+					`,
+				},
 			],
 			sidebar: [
 				{
