@@ -1,0 +1,47 @@
+---
+title: API Dev Studio Documentation
+description: Learn how to use API Dev Studio to mock APIs, catch webhooks, and proxy requests.
+template: splash
+hero:
+  tagline: Mock APIs, catch webhooks, proxy requests — all in one local-first desktop app.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Get Started
+      link: /docs/getting-started/first-project/
+      icon: right-arrow
+      variant: primary
+    - text: Download App
+      link: https://apidevstudio.com/#pricing
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Quick Start
+
+<CardGrid stagger>
+  <Card title="Create Your First Project" icon="rocket">
+    Set up a project and start your mock server in under a minute.
+    [Get started →](/docs/getting-started/first-project/)
+  </Card>
+  <Card title="Mock Endpoints" icon="seti:json">
+    Create REST endpoints with custom responses, status codes, and headers.
+    [Learn more →](/docs/features/mock-endpoints/)
+  </Card>
+  <Card title="Template Variables" icon="random">
+    Generate dynamic data with 30+ helpers like `{{uuid}}`, `{{name}}`, `{{email}}`.
+    [View helpers →](/docs/reference/template-helpers/)
+  </Card>
+  <Card title="Proxy & Record" icon="external">
+    Proxy real APIs and automatically record responses to generate mocks.
+    [Set up proxy →](/docs/features/proxy-recording/)
+  </Card>
+</CardGrid>
+
+## Why API Dev Studio?
+
+- **Local-first** — Everything runs on your machine. No cloud, no accounts, no data sharing.
+- **All-in-one** — Replace webhook.site, Postman mocks, and json-server with a single app.
+- **Fast** — Native desktop app built with Rust. Starts instantly, runs efficiently.
+- **Developer-friendly** — Template variables, conditional responses, request inspector, and more.
