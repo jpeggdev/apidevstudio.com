@@ -32,15 +32,15 @@ if [ "$ACTION" = "delete" ]; then
 
     # Delete child records first, then license
     echo "Removing activations..."
-    npx wrangler d1 execute apidevstudio_licenses --remote --command \
+    npx wrangler d1 execute apidevstudio-licenses --remote --command \
         "DELETE FROM activations WHERE license_id IN (SELECT id FROM licenses WHERE email = '$EMAIL');"
 
     echo "Removing verification tokens..."
-    npx wrangler d1 execute apidevstudio_licenses --remote --command \
+    npx wrangler d1 execute apidevstudio-licenses --remote --command \
         "DELETE FROM verification_tokens WHERE license_id IN (SELECT id FROM licenses WHERE email = '$EMAIL');"
 
     echo "Removing license..."
-    npx wrangler d1 execute apidevstudio_licenses --remote --command \
+    npx wrangler d1 execute apidevstudio-licenses --remote --command \
         "DELETE FROM licenses WHERE email = '$EMAIL';"
 
     echo ""
@@ -82,7 +82,7 @@ echo ""
 
 # Insert into D1 database
 echo "Inserting into database..."
-npx wrangler d1 execute apidevstudio_licenses --remote --command \
+npx wrangler d1 execute apidevstudio-licenses --remote --command \
     "INSERT INTO licenses (id, key, email, created_at, updated_at) VALUES ('$LICENSE_ID', '$LICENSE_KEY', '$EMAIL', datetime('now'), datetime('now'));"
 
 echo "Database insert successful!"

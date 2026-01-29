@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Dev Studio - Mocks, Webhooks, and Proxies in One App</title>
-    <meta name="description" content="Stop switching between webhook.site, Postman mocks, and json-server. API Dev Studio handles all three — offline, private, fast.">
+    <meta name="description" content="One app for mocks, webhooks, and proxies. $19 lifetime license (Early Access) — regular price $29. No subscription. Download for Windows, macOS, and Linux.">
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://apidevstudio.com/">
     <meta property="og:site_name" content="API Dev Studio">
     <meta property="og:title" content="API Dev Studio - Mocks, Webhooks, and Proxies in One App">
-    <meta property="og:description" content="Stop switching between webhook.site, Postman mocks, and json-server. API Dev Studio handles all three — offline, private, fast.">
+    <meta property="og:description" content="One app for mocks, webhooks, and proxies. $19 lifetime license (Early Access) — regular price $29. No subscription.">
     <meta property="og:image" content="https://apidevstudio.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://apidevstudio.com/">
     <meta name="twitter:title" content="API Dev Studio - Mocks, Webhooks, and Proxies in One App">
-    <meta name="twitter:description" content="Stop switching between webhook.site, Postman mocks, and json-server. API Dev Studio handles all three — offline, private, fast.">
+    <meta name="twitter:description" content="One app for mocks, webhooks, and proxies. $19 lifetime license (Early Access) — regular price $29. No subscription.">
     <meta name="twitter:image" content="https://apidevstudio.com/twitter-image.png">
     <meta name="twitter:image:alt" content="API Dev Studio - Mocks, Webhooks, and Proxies in One App">
 
@@ -55,10 +55,10 @@
         },
         {
           "@type": "Offer",
-          "price": "29",
+          "price": "19",
           "priceCurrency": "USD",
-          "name": "Pro",
-          "description": "Unlimited projects, endpoints, and history. One-time payment."
+          "name": "Lifetime License (Early Access)",
+          "description": "Unlimited projects, endpoints, and history. One-time payment. $29 after v1.0 launch."
         }
       ],
       "featureList": [
@@ -74,7 +74,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -99,7 +99,7 @@
             --color-accent: #c8ff00;
             --color-accent-dim: rgba(200, 255, 0, 0.15);
             --color-accent-glow: rgba(200, 255, 0, 0.4);
-            --font-display: 'Syne', system-ui, sans-serif;
+            --font-display: 'Space Grotesk', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
 
@@ -594,6 +594,7 @@
 
         .section-header {
             margin-bottom: 64px;
+            overflow: visible;
         }
 
         .section-label {
@@ -609,8 +610,10 @@
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.02em;
-            line-height: 1.2;
+            line-height: 1.4;
             max-width: 600px;
+            overflow: visible;
+            padding-bottom: 8px;
         }
 
         .features-grid {
@@ -1044,6 +1047,11 @@
             .hero {
                 padding: 100px 0 60px;
             }
+
+            /* Pricing section responsive adjustments */
+            #pricing .pricing-grid + div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -1333,7 +1341,8 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Pricing</div>
-                <h2 class="section-title">Simple, honest pricing</h2>
+                <h2 class="section-title">Pay once. Own forever.</h2>
+                <p style="font-size: 1rem; color: var(--color-text-muted); margin-top: 12px; max-width: 500px;">No subscription. No limits. All future updates included.</p>
             </div>
 
             <div class="pricing-grid">
@@ -1343,53 +1352,185 @@
                         <h3 class="pricing-name">Free</h3>
                         <div class="pricing-price">
                             <span class="price-amount">$0</span>
-                            <span class="price-period">forever</span>
                         </div>
                     </div>
-                    <p class="pricing-description">Perfect for trying out API Dev Studio</p>
+                    <p class="pricing-description">Perfect for hobby projects</p>
                     <ul class="pricing-features">
+                        <li><span class="check">✓</span> Core mock API features</li>
+                        <li><span class="check">✓</span> Webhook endpoints</li>
+                        <li><span class="check">✓</span> Request inspector</li>
+                        <li><span class="check">✓</span> Template variables</li>
                         <li><span class="check">✓</span> 1 project</li>
                         <li><span class="check">✓</span> 25 endpoints</li>
-                        <li><span class="check">✓</span> 100 request history</li>
-                        <li><span class="check">✓</span> Mock endpoints</li>
-                        <li><span class="check">✓</span> Webhook receivers</li>
-                        <li><span class="check">✓</span> Proxy & recording</li>
-                        <li><span class="check">✓</span> Template variables</li>
-                        <li><span class="check">✓</span> Request inspector</li>
-                        <li class="disabled"><span class="x">✕</span> Import/Export</li>
-                        <li class="disabled"><span class="x">✕</span> MCP Server</li>
+                        <li><span class="check">✓</span> 100 requests in history</li>
                     </ul>
-                    <a href="#download-section" class="btn btn-secondary pricing-btn">Download Free</a>
+                    <a href="#download-section" class="btn btn-secondary pricing-btn">Download for Free</a>
                 </div>
 
-                <!-- Pro Tier -->
+                <!-- Lifetime License -->
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Best Value</div>
+                    <div class="pricing-badge">🎉 Early Access</div>
                     <div class="pricing-header">
-                        <h3 class="pricing-name">Pro</h3>
+                        <h3 class="pricing-name">Lifetime License</h3>
                         <div class="pricing-price">
-                            <span class="price-amount">$29</span>
-                            <span class="price-period">one-time</span>
+                            <span class="price-amount">$19</span>
                         </div>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-dim); margin-top: 4px; text-decoration: line-through;">$29 after v1 launch</p>
                     </div>
-                    <p class="pricing-description">Everything you need, forever</p>
+                    <p class="pricing-description">Everything. Forever.</p>
                     <ul class="pricing-features">
-                        <li><span class="check">✓</span> <strong>Unlimited</strong> projects</li>
-                        <li><span class="check">✓</span> <strong>Unlimited</strong> endpoints</li>
-                        <li><span class="check">✓</span> <strong>Unlimited</strong> request history</li>
-                        <li><span class="check">✓</span> Mock endpoints</li>
-                        <li><span class="check">✓</span> Webhook receivers</li>
-                        <li><span class="check">✓</span> Proxy & recording</li>
-                        <li><span class="check">✓</span> Template variables</li>
-                        <li><span class="check">✓</span> Request inspector</li>
-                        <li><span class="check highlight">✓</span> <strong>OpenAPI import/export</strong></li>
-                        <li><span class="check highlight">✓</span> <strong>Postman import</strong></li>
-                        <li><span class="check highlight">✓</span> <strong>Project export/import</strong></li>
-                        <li><span class="check highlight">✓</span> <strong>MCP Server</strong> (AI integration)</li>
+                        <li><span class="check">✓</span> Everything in Free, plus:</li>
+                        <li><span class="check highlight">✓</span> <strong>Unlimited projects</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>Unlimited endpoints</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>Unlimited request history</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>Import from OpenAPI</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>Import from Postman</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>Export & share projects</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>All future updates included</strong></li>
+                        <li><span class="check highlight">✓</span> <strong>Commercial use allowed</strong></li>
                     </ul>
-                    <a id="buy-pro-btn" href="https://buy.stripe.com/cNibIU5xp1R59TQ6eCdwc00" class="btn btn-primary pricing-btn">Buy Now — $29</a>
-                    <p class="pricing-note">No subscription. Pay once, use forever.</p>
+                    <a id="buy-pro-btn" href="https://buy.stripe.com/cNibIU5xp1R59TQ6eCdwc00" class="btn btn-primary pricing-btn">Get Lifetime Access for $19</a>
+                    <p class="pricing-note">30-day money-back guarantee • No subscription • One-time payment</p>
                 </div>
+            </div>
+
+            <!-- Early Access Explainer -->
+            <div style="max-width: 800px; margin: 80px auto 0; padding: 40px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 16px;">
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; text-align: center;">Early Access Pricing: Lock in $19 for Life</h3>
+                <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 20px;">
+                    API Dev Studio has all the core features you need right now. We're calling it "Early Access" because we're still building toward v1.0 with refinements, quality-of-life improvements, and polish.
+                </p>
+                <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 24px;">
+                    When v1.0 launches, the price goes up to $29. But if you buy now, you lock in $19 forever—and get every single update we ship.
+                </p>
+                <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 20px;">
+                    That includes all the features on our roadmap. Forever. No surprises.
+                </p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border);">
+                        <span style="color: var(--color-accent); font-weight: bold;">✓</span> All current features (fully functional)
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border);">
+                        <span style="color: var(--color-accent); font-weight: bold;">✓</span> All updates between now and v1.0
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border);">
+                        <span style="color: var(--color-accent); font-weight: bold;">✓</span> All updates after v1.0
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.875rem;">
+                        <span style="color: var(--color-accent); font-weight: bold;">✓</span> Your price never changes
+                    </li>
+                </ul>
+            </div>
+
+            <!-- When Should You Upgrade -->
+            <div style="max-width: 900px; margin: 60px auto 0;">
+                <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; margin-bottom: 16px; text-align: center;">When Should You Upgrade?</h3>
+                <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 40px; text-align: center;">
+                    The free version is great for trying out API Dev Studio or small hobby projects. But if you're doing serious API development work, you'll quickly hit the limits.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+                    <div style="background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px;">
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 16px;">You're fine with Free if:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8;">
+                            <li style="padding: 4px 0;">• You're just testing out the tool</li>
+                            <li style="padding: 4px 0;">• You work on one project at a time</li>
+                            <li style="padding: 4px 0;">• 25 endpoints is plenty</li>
+                            <li style="padding: 4px 0;">• 100 requests of history is enough</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px;">
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 16px;">Upgrade to Lifetime if:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8;">
+                            <li style="padding: 4px 0;">• You manage multiple projects</li>
+                            <li style="padding: 4px 0;">• You need more than 25 endpoints</li>
+                            <li style="padding: 4px 0;">• You need full request history for debugging</li>
+                            <li style="padding: 4px 0;">• You import OpenAPI or Postman collections</li>
+                            <li style="padding: 4px 0;">• You want to export and share your work</li>
+                            <li style="padding: 4px 0;">• You use this professionally or commercially</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div style="max-width: 800px; margin: 80px auto 0;">
+                <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; margin-bottom: 40px; text-align: center;">Frequently Asked Questions</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 32px;">
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">What happens to my $19 price after v1.0 launches?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">Nothing. Your price is locked in forever. New customers will pay $29, but you'll keep paying nothing (because you already paid once).</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">Is this a subscription?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">Nope. You pay $19 once, and you own API Dev Studio forever. No monthly fees. No renewals. No "gotchas."</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">Do I have to pay for updates?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">Never. Every future update is included. v2.0, v3.0, v10.0—you get them all.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">When does Early Access pricing end?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">When we launch v1.0 (targeting Spring 2026). After that, the lifetime license will be $29.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">What if I already downloaded the free version?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">Perfect! Just buy a license key and enter it in the app. It unlocks all the features instantly.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">Can I use this for commercial projects?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">Yes! The lifetime license includes commercial use. Build client projects, use it at work, whatever you need.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">What if I'm not happy with it?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">30-day money-back guarantee. No questions asked.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">What about the Enterprise tier?</h4>
+                        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;">We're building enterprise features for teams and companies that need them. Your lifetime license will always work—enterprise will be a separate tier for team-specific features. We'll share details when we're closer to launch.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust/Guarantee Section -->
+            <div style="max-width: 600px; margin: 80px auto 0; padding: 40px; background: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-elevated) 100%); border: 1px solid var(--color-border); border-radius: 16px; text-align: center;">
+                <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; margin-bottom: 16px;">Try API Dev Studio Risk-Free</h3>
+                <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 32px;">
+                    We're confident you'll love API Dev Studio. But if it's not right for you, just email us within 30 days for a full refund. No questions, no hassle.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 8px;">🔒</div>
+                        <div style="font-size: 0.8125rem; color: var(--color-text-dim);">Secure checkout</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 8px;">↩️</div>
+                        <div style="font-size: 0.8125rem; color: var(--color-text-dim);">30-day guarantee</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 8px;">✅</div>
+                        <div style="font-size: 0.8125rem; color: var(--color-text-dim);">Instant delivery</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div style="max-width: 600px; margin: 60px auto 0; text-align: center;">
+                <h3 style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 16px;">Lock in $19 Before the Price Goes Up</h3>
+                <p style="font-size: 1rem; color: var(--color-text-muted); margin-bottom: 32px;">
+                    Join the developers who've already grabbed Early Access pricing. Pay once, own forever, and never worry about subscription fees.
+                </p>
+                <a href="https://buy.stripe.com/cNibIU5xp1R59TQ6eCdwc00" class="btn btn-primary" style="font-size: 1rem; padding: 16px 40px;">Get Lifetime Access for $19</a>
+                <p style="font-size: 0.8125rem; color: var(--color-text-dim); margin-top: 16px;">
+                    Regular price after v1.0: $29 • No subscription • 30-day guarantee
+                </p>
             </div>
         </div>
     </section>
