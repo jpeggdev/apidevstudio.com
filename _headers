@@ -1,0 +1,7 @@
+# Sitemap - must be XML content type
+/sitemap.xml
+  Content-Type: application/xml
+
+# Robots.txt - plain text
+/robots.txt
+  Content-Type: text/plain

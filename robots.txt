@@ -1,0 +1,11 @@
+# robots.txt for apidevstudio.com
+
+User-agent: *
+Allow: /
+
+# Block utility pages
+Disallow: /success.html
+
+# Sitemaps
+Sitemap: https://apidevstudio.com/sitemap.xml
+Sitemap: https://apidevstudio.com/docs/sitemap-index.xml

@@ -1,0 +1,6 @@
+# License verification - redirect to license worker
+/verify/* https://apidevstudio-license.jeff-pegg.workers.dev/verify/:splat 302
+
+# Serve docs as static files
+/docs/* /docs/:splat 200
+

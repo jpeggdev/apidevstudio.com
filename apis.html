@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public API Directory - API Dev Studio</title>
+    <meta name="description" content="Browse 100+ public APIs and import them into API Dev Studio with one click. GitHub, Stripe, OpenAI, and more.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apidevstudio.com/apis">
+    <meta property="og:site_name" content="API Dev Studio">
+    <meta property="og:title" content="Public API Directory - API Dev Studio">
+    <meta property="og:description" content="Browse 100+ public APIs and import them into API Dev Studio with one click. GitHub, Stripe, OpenAI, and more.">
+    <meta property="og:image" content="https://apidevstudio.com/og-apis.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Public API Directory - API Dev Studio">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://apidevstudio.com/apis">
+    <meta name="twitter:title" content="Public API Directory - API Dev Studio">
+    <meta name="twitter:description" content="Browse 100+ public APIs and import them into API Dev Studio with one click. GitHub, Stripe, OpenAI, and more.">
+    <meta name="twitter:image" content="https://apidevstudio.com/og-apis.png">
+    <meta name="twitter:image:alt" content="Public API Directory - API Dev Studio">
+    <meta name="twitter:site" content="@jpegg_dev">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://apidevstudio.com/apis">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBWT6X0PNM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VBWT6X0PNM');
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Public API Directory",
+      "description": "Browse 100+ public APIs and import them into API Dev Studio with one click.",
+      "url": "https://apidevstudio.com/apis",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "API Dev Studio",
+        "url": "https://apidevstudio.com/"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Public APIs",
+        "description": "A curated directory of public APIs for developers"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+
+    <style>
+        :root {
+            --color-bg: #0a0a0b;
+            --color-bg-elevated: #131316;
+            --color-bg-secondary: #1a1a1f;
+            --color-bg-card: #18181c;
+            --color-border: #2a2a30;
+            --color-border-hover: #3a3a42;
+            --color-text: #fafafa;
+            --color-text-muted: #8a8a94;
+            --color-text-dim: #5a5a64;
+            --color-accent: #c8ff00;
+            --color-accent-dim: rgba(200, 255, 0, 0.15);
+            --color-accent-glow: rgba(200, 255, 0, 0.4);
+            --color-danger: #ff4444;
+            --color-danger-dim: rgba(255, 68, 68, 0.15);
+            --font-display: 'Space Grotesk', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            font-weight: 400;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Gradient mesh background */
+        .bg-mesh {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -10%, rgba(200, 255, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(200, 255, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(20, 20, 25, 1) 0%, var(--color-bg) 100%);
+            z-index: -1;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 0;
+            background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--color-accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: var(--color-bg);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.8125rem;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 .accent {
+            color: var(--color-accent);
+        }
+
+        .hero .subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Search */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 32px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            color: var(--color-text);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--color-text-dim);
+        }
+
+        .search-input:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px var(--color-accent-dim);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-dim);
+            pointer-events: none;
+        }
+
+        /* Sort & Filter controls */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .sort-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .sort-btn {
+            padding: 8px 16px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            color: var(--color-text-muted);
+            font-family: var(--font-display);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sort-btn:hover {
+            border-color: var(--color-border-hover);
+            color: var(--color-text);
+        }
+
+        .sort-btn.active {
+            background: var(--color-accent-dim);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Category chips */
+        .category-chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-border) transparent;
+            -webkit-overflow-scrolling: touch;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-chips::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .category-chips::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .category-chips::-webkit-scrollbar-thumb {
+            background: var(--color-border);
+            border-radius: 2px;
+        }
+
+        .category-chip {
+            padding: 6px 14px;
+            background: var(--color-bg-secondary);
+            border: 1px solid transparent;
+            border-radius: 20px;
+            color: var(--color-text-muted);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .category-chip:hover {
+            color: var(--color-text);
+            border-color: var(--color-border);
+        }
+
+        .category-chip.active {
+            background: var(--color-accent-dim);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Results info */
+        .results-info {
+            text-align: center;
+            color: var(--color-text-dim);
+            font-size: 0.8125rem;
+            margin-bottom: 24px;
+        }
+
+        /* API Cards Grid */
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .api-card {
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .api-card:hover {
+            border-color: var(--color-border-hover);
+            transform: translateY(-2px);
+        }
+
+        .api-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .api-card-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            color: var(--color-text);
+        }
+
+        .api-card-description {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .api-card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .badge {
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
+        }
+
+        .badge-category {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+        }
+
+        .badge-auth {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fcd34d;
+        }
+
+        .badge-endpoints {
+            background: rgba(52, 211, 153, 0.15);
+            color: #6ee7b7;
+        }
+
+        .api-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 2px 8px;
+            background: var(--color-bg-secondary);
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            color: var(--color-text-dim);
+            font-family: var(--font-mono);
+        }
+
+        .api-card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .api-card-actions-left {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .vote-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            color: var(--color-text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .vote-btn:hover {
+            border-color: var(--color-border-hover);
+            color: var(--color-text);
+        }
+
+        .vote-btn.voted {
+            background: var(--color-danger-dim);
+            border-color: var(--color-danger);
+            color: var(--color-danger);
+        }
+
+        .vote-btn svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .vote-btn:hover svg {
+            transform: scale(1.15);
+        }
+
+        .docs-link {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .docs-link:hover {
+            color: var(--color-accent);
+        }
+
+        .import-btn {
+            padding: 8px 16px;
+            background: var(--color-accent);
+            border: none;
+            border-radius: 8px;
+            color: var(--color-bg);
+            font-family: var(--font-display);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .import-btn:hover {
+            box-shadow: 0 0 20px var(--color-accent-glow);
+            transform: translateY(-1px);
+        }
+
+        /* Loading state */
+        .api-grid-loading {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .skeleton-card {
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skeleton-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+            animation: shimmer 1.5s ease infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 80px 24px;
+            color: var(--color-text-dim);
+        }
+
+        .empty-state svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-size: 0.875rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 60px;
+        }
+
+        .page-btn {
+            padding: 8px 14px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            color: var(--color-text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--color-border-hover);
+            color: var(--color-text);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .page-btn.active {
+            background: var(--color-accent-dim);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .page-info {
+            color: var(--color-text-dim);
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            padding: 0 8px;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 60px 24px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-cta h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer-cta p {
+            color: var(--color-text-muted);
+            font-size: 0.9375rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 12px 24px;
+            background: var(--color-accent);
+            border: none;
+            border-radius: 10px;
+            color: var(--color-bg);
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px var(--color-accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            color: var(--color-text-muted);
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-border-hover);
+            color: var(--color-text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--color-text-dim);
+            font-size: 0.75rem;
+        }
+
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 480px;
+            width: 100%;
+            transform: translateY(16px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.open .modal {
+            transform: translateY(0);
+        }
+
+        .modal h2 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .modal p {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-group label .required {
+            color: var(--color-danger);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            color: var(--color-text);
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--color-accent);
+        }
+
+        .form-input::placeholder {
+            color: var(--color-text-dim);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .form-error {
+            color: var(--color-danger);
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 24px 0;
+        }
+
+        .form-success svg {
+            width: 48px;
+            height: 48px;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .form-success h3 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+
+        .form-success p {
+            margin-bottom: 0;
+        }
+
+        /* Download modal */
+        .download-modal-content {
+            text-align: center;
+        }
+
+        .download-modal-content h2 {
+            margin-bottom: 12px;
+        }
+
+        .download-modal-content p {
+            margin-bottom: 20px;
+        }
+
+        .download-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .download-link {
+            padding: 12px 20px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            color: var(--color-text);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-link:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .download-link-primary {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-bg);
+            font-weight: 600;
+        }
+
+        .download-link-primary:hover {
+            box-shadow: 0 0 20px var(--color-accent-glow);
+            color: var(--color-bg);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            padding: 12px 24px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            color: var(--color-text);
+            font-size: 0.8125rem;
+            z-index: 300;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .api-grid,
+            .api-grid-loading {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .category-chips {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+            }
+
+            .api-card-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .api-card-actions-left {
+                justify-content: space-between;
+            }
+
+            .import-btn {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal {
+                padding: 24px;
+            }
+
+            .form-actions {
+                flex-direction: column-reverse;
+            }
+
+            .form-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-mark">A</div>
+                <span>API Dev Studio</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/docs/">Docs</a>
+                <a href="/apis" class="active">APIs</a>
+                <a href="https://github.com/jpeggdev/api-dev-studio/releases">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="animate-fade-up">Public API <span class="accent">Directory</span></h1>
+            <p class="subtitle animate-fade-up delay-1">Discover APIs and import them into API Dev Studio with one click.</p>
+
+            <!-- Search -->
+            <div class="search-container animate-fade-up delay-2">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" class="search-input" id="search-input" placeholder="Search APIs... (e.g. GitHub, Stripe, OpenAI)" autocomplete="off">
+            </div>
+
+            <!-- Sort buttons -->
+            <div class="controls animate-fade-up delay-3">
+                <div class="sort-buttons">
+                    <button class="sort-btn active" data-sort="votes">Popular</button>
+                    <button class="sort-btn" data-sort="newest">Newest</button>
+                    <button class="sort-btn" data-sort="imports">Most Imported</button>
+                </div>
+
+                <!-- Category chips -->
+                <div class="category-chips" id="category-chips">
+                    <button class="category-chip active" data-category="">All</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API List -->
+    <section class="container">
+        <div class="results-info" id="results-info"></div>
+
+        <!-- Loading skeleton -->
+        <div class="api-grid-loading" id="loading-grid">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+        </div>
+
+        <!-- API cards grid -->
+        <div class="api-grid" id="api-grid" style="display: none;"></div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <h3>No APIs found</h3>
+            <p>Try adjusting your search or filters. You can also submit an API you'd like to see listed.</p>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination" style="display: none;"></div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Know a great API?</h2>
+            <p>Help other developers discover useful APIs by submitting one to the directory.</p>
+            <div class="footer-cta-buttons">
+                <button class="btn-primary" onclick="openSubmitModal()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Submit an API
+                </button>
+                <a href="https://github.com/jpeggdev/api-dev-studio/releases" class="btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download API Dev Studio Free
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <a href="https://jpegg.dev">jpegg.dev</a> &middot; <a href="/">API Dev Studio</a> &middot; <a href="/docs/">Docs</a> &middot; <a href="https://github.com/jpeggdev/api-dev-studio">GitHub</a></p>
+        </div>
+    </footer>
+
+    <!-- Submit API Modal -->
+    <div class="modal-overlay" id="submit-modal">
+        <div class="modal">
+            <div id="submit-form-container">
+                <h2>Submit an API</h2>
+                <p>Suggest a public API to add to the directory. We'll review it and add it within a few days.</p>
+                <form id="submit-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>API Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="submit-name" placeholder="e.g. Stripe API" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-input" id="submit-description" placeholder="What does this API do?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Website URL</label>
+                        <input type="url" class="form-input" id="submit-website" placeholder="https://docs.example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Base URL</label>
+                        <input type="url" class="form-input" id="submit-base-url" placeholder="https://api.example.com/v1">
+                    </div>
+                    <div class="form-group">
+                        <label>OpenAPI/Swagger Spec URL</label>
+                        <input type="url" class="form-input" id="submit-spec-url" placeholder="https://api.example.com/openapi.json">
+                    </div>
+                    <div class="form-error" id="submit-error"></div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeSubmitModal()">Cancel</button>
+                        <button type="submit" class="btn-primary" id="submit-btn">Submit API</button>
+                    </div>
+                </form>
+            </div>
+            <div id="submit-success" class="form-success" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h3>Thanks for your submission!</h3>
+                <p>We'll review it and add it to the directory soon.</p>
+                <div class="form-actions" style="justify-content: center; margin-top: 16px;">
+                    <button class="btn-secondary" onclick="closeSubmitModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Fallback Modal -->
+    <div class="modal-overlay" id="download-modal">
+        <div class="modal">
+            <div class="download-modal-content">
+                <h2>Open in API Dev Studio</h2>
+                <p id="download-modal-text">It looks like API Dev Studio isn't installed yet. Download it free to start importing APIs.</p>
+                <div class="download-links">
+                    <a href="https://github.com/jpeggdev/api-dev-studio/releases/latest" class="download-link download-link-primary" id="download-primary-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span id="download-primary-text">Download for your OS</span>
+                    </a>
+                    <a href="https://github.com/jpeggdev/api-dev-studio/releases" class="download-link">View all releases</a>
+                </div>
+                <button class="btn-secondary" onclick="closeDownloadModal()" style="width: 100%;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ============================================================
+        // Configuration
+        // ============================================================
+        var API_BASE = 'https://apidevstudio-registry.jeff-pegg.workers.dev';
+        var ITEMS_PER_PAGE = 20;
+
+        // ============================================================
+        // State (immutable pattern - always replace, never mutate)
+        // ============================================================
+        var state = {
+            apis: [],
+            categories: [],
+            total: 0,
+            page: 1,
+            sort: 'votes',
+            category: '',
+            search: '',
+            loading: true,
+            votedIds: {}
+        };
+
+        function setState(updates) {
+            state = Object.assign({}, state, updates);
+        }
+
+        // ============================================================
+        // Visitor ID (canvas fingerprint hash)
+        // ============================================================
+        function generateVisitorId() {
+            var stored = localStorage.getItem('ads_visitor_id');
+            if (stored) return stored;
+
+            try {
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                canvas.width = 256;
+                canvas.height = 64;
+                ctx.textBaseline = 'top';
+                ctx.font = '14px Arial';
+                ctx.fillStyle = '#f60';
+                ctx.fillRect(125, 1, 62, 20);
+                ctx.fillStyle = '#069';
+                ctx.fillText('API Dev Studio visitor', 2, 15);
+                ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
+                ctx.fillText('API Dev Studio visitor', 4, 17);
+
+                var dataUrl = canvas.toDataURL();
+                var hash = 0;
+                for (var i = 0; i < dataUrl.length; i++) {
+                    var chr = dataUrl.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + chr;
+                    hash |= 0;
+                }
+                var visitorId = 'v_' + Math.abs(hash).toString(36);
+                localStorage.setItem('ads_visitor_id', visitorId);
+                return visitorId;
+            } catch (e) {
+                var fallback = 'v_' + Math.random().toString(36).substr(2, 12);
+                localStorage.setItem('ads_visitor_id', fallback);
+                return fallback;
+            }
+        }
+
+        var visitorId = generateVisitorId();
+
+        // Load voted IDs from localStorage
+        function loadVotedIds() {
+            try {
+                var stored = localStorage.getItem('ads_voted_apis');
+                return stored ? JSON.parse(stored) : {};
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveVotedIds(votedIds) {
+            try {
+                localStorage.setItem('ads_voted_apis', JSON.stringify(votedIds));
+            } catch (e) {
+                // Storage full or unavailable
+            }
+        }
+
+        setState({ votedIds: loadVotedIds() });
+
+        // ============================================================
+        // API Calls
+        // ============================================================
+        function fetchApis() {
+            setState({ loading: true });
+            renderLoading();
+
+            var params = new URLSearchParams({
+                sort: state.sort,
+                page: String(state.page),
+                limit: String(ITEMS_PER_PAGE)
+            });
+
+            if (state.category) params.set('category', state.category);
+            if (state.search) params.set('search', state.search);
+
+            fetch(API_BASE + '/apis?' + params.toString())
+                .then(function(res) {
+                    if (!res.ok) throw new Error('Failed to fetch APIs');
+                    return res.json();
+                })
+                .then(function(data) {
+                    setState({
+                        apis: data.apis || [],
+                        total: data.total || 0,
+                        page: data.page || 1,
+                        loading: false
+                    });
+
+                    // Update categories if returned
+                    if (data.categories && data.categories.length > 0) {
+                        setState({ categories: data.categories });
+                        renderCategories();
+                    }
+
+                    renderApis();
+                    renderPagination();
+                    renderResultsInfo();
+                })
+                .catch(function(err) {
+                    setState({ loading: false, apis: [], total: 0 });
+                    renderApis();
+                    renderPagination();
+                    renderResultsInfo();
+                });
+        }
+
+        function voteForApi(apiId) {
+            var isCurrentlyVoted = !!state.votedIds[apiId];
+            var newVotedIds = Object.assign({}, state.votedIds);
+
+            // Optimistic update
+            if (isCurrentlyVoted) {
+                delete newVotedIds[apiId];
+            } else {
+                newVotedIds[apiId] = true;
+            }
+
+            // Optimistic vote count update
+            var newApis = state.apis.map(function(api) {
+                if (api.id === apiId) {
+                    return Object.assign({}, api, {
+                        votes: api.votes + (isCurrentlyVoted ? -1 : 1)
+                    });
+                }
+                return api;
+            });
+
+            setState({ votedIds: newVotedIds, apis: newApis });
+            saveVotedIds(newVotedIds);
+            renderApis();
+
+            fetch(API_BASE + '/apis/' + apiId + '/vote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ visitor_id: visitorId })
+            })
+                .then(function(res) {
+                    if (!res.ok) throw new Error('Vote failed');
+                    return res.json();
+                })
+                .then(function(data) {
+                    // Sync with server state
+                    var syncedVotedIds = Object.assign({}, state.votedIds);
+                    if (data.voted) {
+                        syncedVotedIds[apiId] = true;
+                    } else {
+                        delete syncedVotedIds[apiId];
+                    }
+                    setState({ votedIds: syncedVotedIds });
+                    saveVotedIds(syncedVotedIds);
+                    renderApis();
+                })
+                .catch(function() {
+                    // Revert optimistic update
+                    var revertedVotedIds = Object.assign({}, state.votedIds);
+                    if (isCurrentlyVoted) {
+                        revertedVotedIds[apiId] = true;
+                    } else {
+                        delete revertedVotedIds[apiId];
+                    }
+                    var revertedApis = state.apis.map(function(api) {
+                        if (api.id === apiId) {
+                            return Object.assign({}, api, {
+                                votes: api.votes + (isCurrentlyVoted ? 1 : -1)
+                            });
+                        }
+                        return api;
+                    });
+                    setState({ votedIds: revertedVotedIds, apis: revertedApis });
+                    saveVotedIds(revertedVotedIds);
+                    renderApis();
+                    showToast('Vote failed. Please try again.');
+                });
+        }
+
+        function submitApi(formData) {
+            return fetch(API_BASE + '/apis/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+                .then(function(res) {
+                    if (!res.ok) throw new Error('Submission failed');
+                    return res.json();
+                });
+        }
+
+        function trackImport(apiId) {
+            fetch(API_BASE + '/apis/' + apiId + '/import', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            }).catch(function() {
+                // Fire-and-forget
+            });
+        }
+
+        // ============================================================
+        // Deep Link / Open in App
+        // ============================================================
+        function openInApp(apiId, apiName) {
+            var deepLink = 'apidevstudio://registry/import?id=' + apiId + '&name=' + encodeURIComponent(apiName);
+            var appOpened = false;
+
+            trackImport(apiId);
+
+            // Listen for signs the app took focus
+            function onBlur() { appOpened = true; }
+            function onVisChange() { if (document.hidden) appOpened = true; }
+            window.addEventListener('blur', onBlur);
+            document.addEventListener('visibilitychange', onVisChange);
+
+            window.location.href = deepLink;
+
+            setTimeout(function() {
+                window.removeEventListener('blur', onBlur);
+                document.removeEventListener('visibilitychange', onVisChange);
+                if (!appOpened) {
+                    showDownloadModal(apiName);
+                }
+            }, 2500);
+
+            gtag('event', 'registry_import', {
+                api_id: apiId,
+                api_name: apiName
+            });
+        }
+
+        function showDownloadModal(apiName) {
+            var textEl = document.getElementById('download-modal-text');
+            textEl.textContent = "It looks like API Dev Studio isn't installed yet. Download it free to import " + apiName + " and other APIs.";
+
+            // Detect OS for primary download
+            var ua = navigator.userAgent;
+            var primaryText = document.getElementById('download-primary-text');
+            var primaryLink = document.getElementById('download-primary-link');
+
+            if (ua.indexOf('Win') !== -1) {
+                primaryText.textContent = 'Download for Windows';
+            } else if (ua.indexOf('Mac') !== -1) {
+                primaryText.textContent = 'Download for macOS';
+            } else if (ua.indexOf('Linux') !== -1) {
+                primaryText.textContent = 'Download for Linux';
+            } else {
+                primaryText.textContent = 'Download API Dev Studio';
+            }
+
+            primaryLink.href = 'https://github.com/jpeggdev/api-dev-studio/releases/latest';
+            document.getElementById('download-modal').classList.add('open');
+        }
+
+        function closeDownloadModal() {
+            document.getElementById('download-modal').classList.remove('open');
+        }
+
+        // ============================================================
+        // Rendering
+        // ============================================================
+        function renderLoading() {
+            document.getElementById('loading-grid').style.display = 'grid';
+            document.getElementById('api-grid').style.display = 'none';
+            document.getElementById('empty-state').style.display = 'none';
+            document.getElementById('pagination').style.display = 'none';
+        }
+
+        function renderApis() {
+            var loadingGrid = document.getElementById('loading-grid');
+            var apiGrid = document.getElementById('api-grid');
+            var emptyState = document.getElementById('empty-state');
+
+            loadingGrid.style.display = 'none';
+
+            if (state.apis.length === 0) {
+                apiGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            apiGrid.style.display = 'grid';
+
+            var html = state.apis.map(function(api) {
+                var isVoted = !!state.votedIds[api.id];
+                var voteBtnClass = 'vote-btn' + (isVoted ? ' voted' : '');
+                var heartFill = isVoted ? 'currentColor' : 'none';
+
+                var tags = (api.tags || []).slice(0, 4).map(function(tag) {
+                    return '<span class="tag">' + escapeHtml(tag) + '</span>';
+                }).join('');
+
+                var docsLink = api.website_url
+                    ? '<a href="' + escapeHtml(api.website_url) + '" class="docs-link" target="_blank" rel="noopener noreferrer">View Docs</a>'
+                    : '';
+
+                var authBadge = api.auth_type
+                    ? '<span class="badge badge-auth">' + escapeHtml(api.auth_type) + '</span>'
+                    : '';
+
+                var endpointBadge = api.endpoint_count != null
+                    ? '<span class="badge badge-endpoints">' + api.endpoint_count + ' endpoints</span>'
+                    : '';
+
+                return '<div class="api-card">' +
+                    '<div class="api-card-header">' +
+                        '<h3>' + escapeHtml(api.name) + '</h3>' +
+                    '</div>' +
+                    '<p class="api-card-description">' + escapeHtml(api.description || '') + '</p>' +
+                    '<div class="api-card-meta">' +
+                        '<span class="badge badge-category">' + escapeHtml(api.category && api.category.name ? api.category.name : (api.category || 'Uncategorized')) + '</span>' +
+                        endpointBadge +
+                        authBadge +
+                    '</div>' +
+                    (tags ? '<div class="api-card-tags">' + tags + '</div>' : '') +
+                    '<div class="api-card-actions">' +
+                        '<div class="api-card-actions-left">' +
+                            '<button class="' + voteBtnClass + '" onclick="voteForApi(\'' + api.id + '\')">' +
+                                '<svg viewBox="0 0 24 24" fill="' + heartFill + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+                                    '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>' +
+                                '</svg>' +
+                                '<span>' + (api.votes || 0) + '</span>' +
+                            '</button>' +
+                            docsLink +
+                        '</div>' +
+                        '<button class="import-btn" onclick="openInApp(\'' + api.id + '\', \'' + escapeHtml(api.name).replace(/'/g, "\\'") + '\')">Open in App</button>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            apiGrid.innerHTML = html;
+        }
+
+        function renderCategories() {
+            var container = document.getElementById('category-chips');
+            var allChip = '<button class="category-chip' + (state.category === '' ? ' active' : '') + '" data-category="" onclick="setCategory(\'\')">All</button>';
+
+            var chips = state.categories.map(function(cat) {
+                var name = typeof cat === 'string' ? cat : cat.name;
+                var id = typeof cat === 'string' ? cat : (cat.id || cat.name);
+                var isActive = state.category === id;
+                return '<button class="category-chip' + (isActive ? ' active' : '') + '" data-category="' + escapeHtml(id) + '" onclick="setCategory(\'' + escapeHtml(id).replace(/'/g, "\\'") + '\')">' + escapeHtml(name) + '</button>';
+            }).join('');
+
+            container.innerHTML = allChip + chips;
+        }
+
+        function renderPagination() {
+            var container = document.getElementById('pagination');
+            var totalPages = Math.ceil(state.total / ITEMS_PER_PAGE);
+
+            if (totalPages <= 1) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.style.display = 'flex';
+            var html = '';
+
+            // Previous button
+            html += '<button class="page-btn" onclick="goToPage(' + (state.page - 1) + ')"' + (state.page <= 1 ? ' disabled' : '') + '>&laquo; Prev</button>';
+
+            // Page numbers
+            var startPage = Math.max(1, state.page - 2);
+            var endPage = Math.min(totalPages, state.page + 2);
+
+            if (startPage > 1) {
+                html += '<button class="page-btn" onclick="goToPage(1)">1</button>';
+                if (startPage > 2) {
+                    html += '<span class="page-info">...</span>';
+                }
+            }
+
+            for (var i = startPage; i <= endPage; i++) {
+                html += '<button class="page-btn' + (i === state.page ? ' active' : '') + '" onclick="goToPage(' + i + ')">' + i + '</button>';
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    html += '<span class="page-info">...</span>';
+                }
+                html += '<button class="page-btn" onclick="goToPage(' + totalPages + ')">' + totalPages + '</button>';
+            }
+
+            // Next button
+            html += '<button class="page-btn" onclick="goToPage(' + (state.page + 1) + ')"' + (state.page >= totalPages ? ' disabled' : '') + '>Next &raquo;</button>';
+
+            container.innerHTML = html;
+        }
+
+        function renderResultsInfo() {
+            var el = document.getElementById('results-info');
+            if (state.loading) {
+                el.textContent = '';
+                return;
+            }
+
+            if (state.total === 0) {
+                el.textContent = '';
+                return;
+            }
+
+            var start = (state.page - 1) * ITEMS_PER_PAGE + 1;
+            var end = Math.min(state.page * ITEMS_PER_PAGE, state.total);
+            var text = 'Showing ' + start + '-' + end + ' of ' + state.total + ' APIs';
+
+            if (state.search) {
+                text += ' matching "' + state.search + '"';
+            }
+            if (state.category) {
+                text += ' in ' + state.category;
+            }
+
+            el.textContent = text;
+        }
+
+        // ============================================================
+        // User Actions
+        // ============================================================
+        function setSort(sortValue) {
+            if (state.sort === sortValue) return;
+            setState({ sort: sortValue, page: 1 });
+
+            document.querySelectorAll('.sort-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.getAttribute('data-sort') === sortValue);
+            });
+
+            fetchApis();
+            gtag('event', 'registry_sort', { sort: sortValue });
+        }
+
+        function setCategory(category) {
+            if (state.category === category) return;
+            setState({ category: category, page: 1 });
+
+            document.querySelectorAll('.category-chip').forEach(function(chip) {
+                chip.classList.toggle('active', chip.getAttribute('data-category') === category);
+            });
+
+            fetchApis();
+            gtag('event', 'registry_filter', { category: category || 'all' });
+        }
+
+        function goToPage(page) {
+            var totalPages = Math.ceil(state.total / ITEMS_PER_PAGE);
+            if (page < 1 || page > totalPages) return;
+            setState({ page: page });
+            fetchApis();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // Debounced Search
+        // ============================================================
+        var searchTimeout = null;
+
+        function handleSearchInput(e) {
+            var value = e.target.value.trim();
+            clearTimeout(searchTimeout);
+
+            searchTimeout = setTimeout(function() {
+                if (state.search === value) return;
+                setState({ search: value, page: 1 });
+                fetchApis();
+
+                if (value) {
+                    gtag('event', 'registry_search', { query: value });
+                }
+            }, 300);
+        }
+
+        // ============================================================
+        // Submit Modal
+        // ============================================================
+        function openSubmitModal() {
+            document.getElementById('submit-form-container').style.display = 'block';
+            document.getElementById('submit-success').style.display = 'none';
+            document.getElementById('submit-error').style.display = 'none';
+            document.getElementById('submit-form').reset();
+            document.getElementById('submit-modal').classList.add('open');
+
+            gtag('event', 'registry_submit_open');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submit-modal').classList.remove('open');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            var name = document.getElementById('submit-name').value.trim();
+            var description = document.getElementById('submit-description').value.trim();
+            var websiteUrl = document.getElementById('submit-website').value.trim();
+            var baseUrl = document.getElementById('submit-base-url').value.trim();
+            var specUrl = document.getElementById('submit-spec-url').value.trim();
+
+            if (!name) {
+                showFormError('API name is required.');
+                return;
+            }
+
+            var submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            var formData = { name: name };
+            if (description) formData.description = description;
+            if (websiteUrl) formData.website_url = websiteUrl;
+            if (baseUrl) formData.base_url = baseUrl;
+            if (specUrl) formData.spec_url = specUrl;
+
+            submitApi(formData)
+                .then(function() {
+                    document.getElementById('submit-form-container').style.display = 'none';
+                    document.getElementById('submit-success').style.display = 'block';
+                    gtag('event', 'registry_submit_success', { api_name: name });
+                })
+                .catch(function(err) {
+                    showFormError('Failed to submit. Please try again.');
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit API';
+                });
+        }
+
+        function showFormError(msg) {
+            var el = document.getElementById('submit-error');
+            el.textContent = msg;
+            el.style.display = 'block';
+        }
+
+        // ============================================================
+        // Toast
+        // ============================================================
+        function showToast(message) {
+            var toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // ============================================================
+        // Utilities
+        // ============================================================
+        function escapeHtml(str) {
+            if (!str) return '';
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
+        // ============================================================
+        // Event Listeners
+        // ============================================================
+        document.getElementById('search-input').addEventListener('input', handleSearchInput);
+
+        document.querySelectorAll('.sort-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setSort(this.getAttribute('data-sort'));
+            });
+        });
+
+        // Close modals on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('open');
+                }
+            });
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.open').forEach(function(overlay) {
+                    overlay.classList.remove('open');
+                });
+            }
+        });
+
+        // ============================================================
+        // Initialize
+        // ============================================================
+        fetchApis();
+    </script>
+</body>
+</html>
