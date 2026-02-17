@@ -9,69 +9,51 @@
 ```
 website/
 ├── index.html              # Landing page (static, vanilla HTML/CSS/JS)
+├── apis.html               # Public API directory (100+ APIs, one-click import)
 ├── success.html            # Email signup confirmation
-├── docs-src/               # Astro/Starlight documentation source
-│   ├── src/content/docs/   # Synced from monorepo docs/ via sync-docs.sh
-│   ├── astro.config.mjs
-│   └── package.json
-├── workers/                # Cloudflare Workers
-│   ├── license/            # License key gen/validation (Stripe + Loops)
-│   ├── email-subscription/ # Newsletter signup
-│   ├── email-automation/   # Scheduled email sender
-│   ├── pricing/            # Pricing endpoints
-│   └── releases-proxy/     # GitHub releases proxy
+├── docs/                   # Pre-built Astro/Starlight docs (don't edit directly)
 ├── _redirects / _headers   # Cloudflare Pages config
-├── project_notes/          # bugs.md, decisions.md, key_facts.md, issues.md
-└── *.png, *.ico            # Favicon and OG images
-```
-
----
-
-## Commands
-
-```bash
-cd /c/code/api-dev-studio/website
-
-# Documentation
-cd docs-src && bun install && bun run dev      # Dev server
-cd docs-src && bun run build                   # Build for production
-
-# Workers
-cd workers/license && bun install && bun run dev      # Local test
-cd workers/license && bun run deploy                  # Deploy
-cd workers/email-automation && bun run deploy          # Deploy
-```
-
-## Documentation Workflow
-
-**Always edit `docs/` (monorepo root), never `website/docs-src/` directly.**
-
-```bash
-# From monorepo root:
-./scripts/sync-docs.sh    # Copies docs/ -> docs-src/, builds, deploys
+├── sitemap.xml / robots.txt
+├── CONTRIBUTING.md / LICENSE (MIT)
+└── *.png, *.ico            # Favicons and OG images
 ```
 
 ---
 
 ## Deployment
 
-- **Landing page**: Edit `index.html` -> commit -> push to `master` -> auto-deploys
-- **Docs**: Edit `docs/` -> run `sync-docs.sh` -> auto-deploys
-- **Workers**: Edit code -> `bun run dev` (test) -> `bun run deploy`
-- **Secrets**: Set via Wrangler CLI or Cloudflare dashboard, use `.dev.vars` locally
+- **Landing page / APIs page**: Edit HTML -> commit -> push to `master` -> auto-deploys
+- **Docs**: Source lives in monorepo `docs/`; `website/docs/` is build output — don't edit directly
 
 ---
 
-## Workers API Reference
+## URL Routing (`_redirects`)
 
-### License (`workers/license/`)
-- `POST /api/license/generate` - Generate key (requires Stripe confirmation)
-- `POST /api/license/validate` - Validate key (used by desktop app)
-- `POST /api/license/gift` - Create gift license (admin only)
+- `/verify/*` -> License worker (`apidevstudio-license.jeff-pegg.workers.dev`)
+- `/docs/*` -> Static files from `docs/`
 
-### Email (`workers/email-subscription/`)
-- `POST /api/subscribe` - Newsletter signup (double opt-in, Loops)
-- `POST /api/unsubscribe` - One-click unsubscribe
+---
+
+## Pricing Tiers
+
+| Tier | Price | Notes |
+|------|-------|-------|
+| Free | $0 | 3 projects, 10 endpoints, 500 history |
+| Pro | $49 one-time | Unlimited, import/export, MCP, tunneling, HTTPS |
+| Pro+ | $8/month | CLI, CI/CD, load testing, contract validation |
+
+---
+
+## Design Tokens (from `index.html`)
+
+```
+--color-accent: #c8ff00       --color-bg: #0a0a0b
+--color-bg-elevated: #131316  --color-bg-card: #18181c
+--color-border: #2a2a30       --color-text: #fafafa
+--color-text-muted: #8a8a94   --color-text-dim: #5a5a64
+--font-display: 'Space Grotesk'
+--font-mono: 'JetBrains Mono'
+```
 
 ---
 
@@ -84,30 +66,17 @@ cd workers/email-automation && bun run deploy          # Deploy
 
 ## Things to Avoid
 
-- Don't add third-party scripts or analytics without disclosure (privacy-first)
 - Don't use CSS frameworks on landing page (keep vanilla)
-- Don't edit `docs-src/src/content/docs/` directly (use monorepo `docs/`)
-- Don't hardcode secrets in worker code
-- Don't deploy workers without local testing
+- Don't edit `docs/` directly (it's build output from monorepo `docs/` source)
+- Don't hardcode secrets in code
+- Keep landing page style consistent: Space Grotesk + JetBrains Mono, dark theme with `#c8ff00` accent
 
 ## Common Issues
 
 | Issue | Solution |
 |-------|---------|
-| Docs build fails | Clear cache: `rm -rf docs-src/.astro`, reinstall: `bun install --force` |
 | Changes not showing | Purge Cloudflare cache, wait 1-2 min for CDN propagation |
-| Worker deploy fails | `wrangler whoami` to check auth, `wrangler login` to re-auth |
 
 ---
 
-## Project Memory
-
-Check `project_notes/` before proposing changes:
-- **bugs.md** - Known bugs and solutions
-- **decisions.md** - ADRs with context
-- **key_facts.md** - Config, URLs, build commands
-- **issues.md** - Work log
-
----
-
-Last updated: February 8, 2026
+Last updated: February 17, 2026
